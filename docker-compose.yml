@@ -12,6 +12,8 @@ services:
     build:
       context: ./.docker/nginx
       dockerfile: Dockerfile 
+    env_file:
+      - .env
     volumes:
       -  ./.docker/nginx/nginx.conf:/etc/nginx/nginx.conf 
      # - ./.docker/nginx/cert.pem:/etc/cert.pem
