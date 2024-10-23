@@ -12,6 +12,7 @@ COPY . /certbot
 WORKDIR /certbot 
 
 RUN apt-get update
-RUN apt-get -y install certbot
+#RUN apt-get -y install certbot
+RUN apt-get -y install python-certbot-nginx
 
 CMD ["sh", "generate-certificate.sh"]
