@@ -33,7 +33,7 @@ namespace Server
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
             });
 
-            app.UseHttpsRedirection(); 
+            //app.UseHttpsRedirection(); 
 
             if (!app.Environment.IsDevelopment())
             {
