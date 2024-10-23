@@ -9,17 +9,7 @@
       },
       "dotnetRunMessages": true,
       "applicationUrl": "http://localhost:5253"
-    },
-    "https": {
-      "commandName": "Project",
-    //  "launchBrowser": true,
-      "launchUrl": "weatherforecast",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "dotnetRunMessages": true,
-      "applicationUrl": "https://localhost:7007;http://localhost:5253"
-    },
+    } 
     "IIS Express": {
       "commandName": "IISExpress",
      // "launchBrowser": true,
@@ -33,7 +23,6 @@
      // "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}/api",
       "environmentVariables": {
-        "ASPNETCORE_HTTPS_PORTS": "8081",
         "ASPNETCORE_HTTP_PORTS": "8080"
       },
       "publishAllPorts": true,
