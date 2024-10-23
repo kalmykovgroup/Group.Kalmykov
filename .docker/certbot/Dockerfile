@@ -2,7 +2,7 @@ FROM ubuntu
 
 RUN apt-get update 
 
-RUN apt-get install snapd
+RUN apt install snapd
 
 RUN snap install --classic certbot
 
