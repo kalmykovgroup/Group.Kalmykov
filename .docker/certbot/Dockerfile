@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu
 
 EXPOSE 6000 80
 
@@ -9,7 +9,7 @@ ENV DOMAIN_URL=$DOMAIN_URL
 
 WORKDIR /certbot
 COPY . /certbot
-WORKDIR /certbot
+WORKDIR /certbot 
 
 RUN apt-get update
 RUN apt-get -y install certbot
