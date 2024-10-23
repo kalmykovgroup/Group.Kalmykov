@@ -6,9 +6,23 @@ services:
       context: .
       dockerfile: Server/Dockerfile
 
+
+  certbot:
+    container_name: group.kalmykov.certbot 
+    env_file:
+      - .env
+    volumes:
+      - 'ssl_share_dir:${SSL_DIR}'
+    build:
+      context: ./.docker/certbot
+      dockerfile: Dockerfile 
+
+
   nginx:
     container_name: group.kalmykov.nginx
     image: nginx
+    depends_on:
+      - certbot
     build:
       context: ./.docker/nginx
       dockerfile: Dockerfile 
@@ -16,27 +30,13 @@ services:
       - .env
     volumes:
       -  ./.docker/nginx/nginx.conf:/etc/nginx/nginx.conf 
-     # - ./.docker/nginx/cert.pem:/etc/cert.pem
-     # - ./.docker/nginx/key.pem:/etc/key.pem 
+      - 'ssl_share_dir:${SSL_DIR}' 
     ports:
       -  "80:80"
-     # -  "443:443"
+      - "443:443"
 
-
-  certbot:
-    container_name: group.kalmykov.certbot
-    ports:
-      - "6000:80"
-    env_file:
-      - .env
-    volumes:
-      - ./.docker/nginx/:/etc/nginx/
-    build:
-      context: ./.docker/certbot
-      dockerfile: Dockerfile
-      args:
-        DOMAIN_EMAIL: ${DOMAIN_EMAIL}
-        DOMAIN_URL: ${DOMAIN_URL}
+volumes:
+  ssl_share_dir:
  
 
 

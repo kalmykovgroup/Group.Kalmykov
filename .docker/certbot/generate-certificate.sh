@@ -1,12 +1,29 @@
 #!/bin/bash
 
-rm -rf /etc/letsencrypt/live/certfolder*
+if [ ! -f "${SSL_DIR}${SSL_FILENAME_CHAIN}" ] || [ ! -f "${SSL_DIR}${SSL_FILENAME_KEY}" ]; then
 
-certbot certonly --standalone --email $DOMAIN_EMAIL -d $DOMAIN_URL --cert-name=certfolder --key-type rsa --agree-tos
+	echo "ssl files does exist. Получение сертификатов..."
 
-#certbot certonly --webroot --agree-tos --email $DOMAIN_EMAIL --webroot-path /usr/share/nginx/html/ -d $DOMAIN_URL -d www.$DOMAIN_URL
- 
-#certbot certonly --agree-tos -d $DOMAIN_URL -d *.$DOMAIN_URL --preferred-challenges dns --manual --server https://acme-v02.api.letsencrypt.org/directory
+	if [ -f "${SSL_DIR}${SSL_FILENAME_CHAIN}" ]
+		rm "${SSL_DIR}${SSL_FILENAME_CHAIN}"
+	fi
 
-cp -f /etc/letsencrypt/live/${DOMAIN_URL}/fullchain.pem /usr/local/nginx/conf/cert.pem
-cp -f /etc/letsencrypt/live/${DOMAIN_URL}/privkey.pem /usr/local/nginx/conf/key.pem
+	if [ -f "${SSL_DIR}${SSL_FILENAME_KEY}" ]
+		rm "${SSL_DIR}${SSL_FILENAME_KEY}"
+	fi
+
+    certbot certonly --standalone --email $DOMAIN_EMAIL -d $DOMAIN_URL --cert-name=certfolder --key-type rsa --agree-tos --config-dir $SSL_DIR
+
+
+  if [ ! -f "${SSL_DIR}${SSL_FILENAME_CHAIN}" ] || [ ! -f "${SSL_DIR}${SSL_FILENAME_KEY}" ]; then
+
+	  echo "Файлы не найдены, сертификаты не установленны!"
+
+	  else
+		 echo "Сертификаты успешно установленны!"
+	fi
+
+else
+
+	echo "Сертификаты обнаруженны!"
+fi
