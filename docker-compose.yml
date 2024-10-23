@@ -21,20 +21,7 @@ services:
       -  "443:443"
 
 
-  certbot:
-    container_name: group.kalmykov.certbot
-    ports:
-      - "6000:80"
-    env_file:
-      - .env
-    volumes:
-      - ./.docker/nginx/:/etc/nginx/
-    build:
-      context: ./.docker/certbot
-      dockerfile: Dockerfile
-      args:
-        DOMAIN_EMAIL: ${DOMAIN_EMAIL}
-        DOMAIN_URL: ${DOMAIN_URL}
+
  
 
 
