@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" Sdk="Microsoft.Docker.Sdk">
+  <PropertyGroup Label="Globals">
+    <ProjectVersion>2.1</ProjectVersion>
+    <DockerTargetOS>Linux</DockerTargetOS>
+    <DockerPublishLocally>False</DockerPublishLocally>
+    <ProjectGuid>8287a72e-6517-4548-a3a3-42b54a798ff3</ProjectGuid>
+    <DockerLaunchAction>
+    </DockerLaunchAction>
+    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/api/product</DockerServiceUrl>
+    <DockerServiceName>server</DockerServiceName>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include=".docker\certbot\Dockerfile" />
+    <None Include=".docker\certbot\generate-certificate.sh" />
+    <None Include=".docker\nginx\cert.pem" />
+    <None Include=".docker\nginx\Dockerfile" />
+    <None Include=".docker\nginx\key.pem" />
+    <None Include=".docker\nginx\nginx.conf" />
+    <None Include=".env" />
+    <None Include="docker-compose.override.yml">
+      <DependentUpon>docker-compose.yml</DependentUpon>
+    </None>
+    <None Include="docker-compose.yml" />
+    <None Include=".dockerignore" />
+  </ItemGroup>
+</Project>
