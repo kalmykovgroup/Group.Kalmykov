@@ -13,9 +13,7 @@
   <ItemGroup>
     <None Include=".docker\certbot\Dockerfile" />
     <None Include=".docker\certbot\generate-certificate.sh" />
-    <None Include=".docker\nginx\cert.pem" />
     <None Include=".docker\nginx\Dockerfile" />
-    <None Include=".docker\nginx\key.pem" />
     <None Include=".docker\nginx\nginx.conf" />
     <None Include=".env" />
     <None Include="docker-compose.override.yml">
