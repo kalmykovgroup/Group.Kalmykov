@@ -12,7 +12,9 @@ services:
       context: ./.docker/nginx
       dockerfile: Dockerfile 
     env_file:
-      - /.env 
+      - .env 
+volumes:
+   APPDATA:
 
 
  # certbot: 
