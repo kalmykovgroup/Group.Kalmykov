@@ -1,6 +1,6 @@
 FROM ubuntu
 
-EXPOSE 80 80 
+EXPOSE 80
 
 WORKDIR /certbot
 COPY . /certbot
