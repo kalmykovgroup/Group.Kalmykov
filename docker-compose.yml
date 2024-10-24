@@ -1,10 +1,4 @@
-services:
-  server: 
-    container_name: group.kalmykov.server
-    image: server
-    build:
-      context: .
-      dockerfile: Server/Dockerfile
+services: 
 
   certbot:
     depends_on:
