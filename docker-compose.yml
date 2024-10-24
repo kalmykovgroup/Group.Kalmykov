@@ -1,4 +1,10 @@
 services: 
+  server: 
+    container_name: group.kalmykov.server
+    image: server
+    build:
+      context: .
+      dockerfile: Server/Dockerfile
   nginx:
     container_name: group.kalmykov.nginx
     image: nginx
@@ -6,7 +12,7 @@ services:
       context: ./.docker/nginx
       dockerfile: Dockerfile 
     env_file:
-      - .env 
+      - /.env 
 
 
  # certbot: 
