@@ -1,8 +1,5 @@
 services: 
-
-  certbot:
-    depends_on:
-      - server
+  certbot: 
     container_name: group.kalmykov.certbot 
     env_file:
       - .env
