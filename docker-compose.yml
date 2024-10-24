@@ -9,7 +9,8 @@ services:
     build:
       context: ./.docker/certbot
       dockerfile: Dockerfile 
-
+    ports:
+      -  "80:80" 
 
   nginx:
     container_name: group.kalmykov.nginx
@@ -20,7 +21,13 @@ services:
       context: ./.docker/nginx
       dockerfile: Dockerfile 
     env_file:
-      - .env
+      - .env 
+    volumes:
+      -  ./.docker/nginx/nginx.conf:/etc/nginx/nginx.conf 
+      - 'ssl_share_dir:${SSL_DIR}' 
+    ports:
+      -  "80:80"
+      - "443:443"
 
 
 volumes:
