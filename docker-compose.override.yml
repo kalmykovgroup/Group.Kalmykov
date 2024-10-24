@@ -11,7 +11,7 @@ services:
       - .env 
     environment:
       - NGINX_DOMAIN_NAMES=${NGINX_DOMAIN_NAMES}
-      - SSL_FILE_CHAIN=${SSL_FILE_CHAIN}
+      - SSL_FILE_CHAIN_1=${SSL_FILE_CHAIN}
       - SSL_FILE_KEY=${SSL_FILE_KEY}
     volumes:
       -  ./.docker/nginx/nginx.conf:/etc/nginx/nginx.conf 
