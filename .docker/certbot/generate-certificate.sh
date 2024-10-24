@@ -1,14 +1,14 @@
-#!/bin/bash 
+#!/bin/bash
 
 if [ ! -f ${SSL_FILENAME_CHAIN} ] || [ ! -f ${SSL_FILENAME_KEY} ]; then
 
 	echo "ssl files does exist. Получение сертификатов..."
 
-	if [ -f ${SSL_FILENAME_CHAIN} ]
+	if [ -f ${SSL_FILENAME_CHAIN} ]; then
 		rm ${SSL_FILENAME_CHAIN}
 	fi
 
-	if [ -f ${SSL_FILENAME_KEY} ]
+	if [ -f ${SSL_FILENAME_KEY} ]; then
 		rm ${SSL_FILENAME_KEY}
 	fi
 
@@ -19,9 +19,9 @@ if [ ! -f ${SSL_FILENAME_CHAIN} ] || [ ! -f ${SSL_FILENAME_KEY} ]; then
 
 	  echo "Файлы не найдены, сертификаты не установленны!"
 
-	  else
-		 echo "Сертификаты успешно установленны!"
-	fi
+   else
+	 echo "Сертификаты успешно установленны!"
+  fi
 
 else
 
