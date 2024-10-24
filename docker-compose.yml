@@ -10,11 +10,7 @@ services:
     image: nginx
     build:
       context: ./.docker/nginx
-      dockerfile: Dockerfile 
-    env_file:
-      - .env 
-volumes:
-   APPDATA:
+      dockerfile: Dockerfile  
 
 
  # certbot: 
