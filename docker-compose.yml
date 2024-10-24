@@ -9,21 +9,21 @@ services:
       - .env 
 
 
-  certbot: 
-    container_name: group.kalmykov.certbot 
-    depends_on:
-      - nginx
-    env_file:
-      - .env
-    volumes:
-      - 'ssl_share_dir:${SSL_DIR}'
-    build:
-      context: ./.docker/certbot
-      dockerfile: Dockerfile  
+ # certbot: 
+ #   container_name: group.kalmykov.certbot 
+ #   depends_on:
+  #    - nginx
+ #   env_file:
+ #     - .env
+#    volumes:
+ #     - 'ssl_share_dir:${SSL_DIR}'
+ #   build:
+  #    context: ./.docker/certbot
+ #     dockerfile: Dockerfile  
 
 
-volumes:
-  ssl_share_dir:
+#volumes:
+ # ssl_share_dir:
  
 
 
