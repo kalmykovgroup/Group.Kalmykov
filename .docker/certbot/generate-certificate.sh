@@ -12,7 +12,7 @@ if [ ! -f ${SSL_FILE_CHAIN} ] || [ ! -f ${SSL_FILE_KEY} ]; then
 		rm ${SSL_FILE_KEY}
 	fi
 
-    certbot certonly --standalone --email $DOMAIN_EMAIL -d $DOMAIN_URL --cert-name=certfolder --key-type rsa --agree-tos --config-dir $SSL_DIR
+    certbot certonly --standalone --email $DOMAIN_EMAIL -d DOMAIN_NAME --cert-name=certfolder --key-type rsa --agree-tos --config-dir $SSL_DIR
 
 
   if [ ! -f ${SSL_FILE_CHAIN} ] || [ ! -f ${SSL_FILE_KEY} ]; then
