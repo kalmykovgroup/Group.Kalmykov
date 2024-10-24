@@ -1,3 +1,10 @@
-
+services:
+  nginx:
+    volumes:
+      -  ./.docker/nginx/nginx.conf:/etc/nginx/nginx.conf 
+      - 'ssl_share_dir:${SSL_DIR}' 
+    ports:
+      -  "80:80"
+      - "443:443"
 
 
