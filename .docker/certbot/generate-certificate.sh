@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash 
 
 if [ ! -f "${SSL_DIR}${SSL_FILENAME_CHAIN}" ] || [ ! -f "${SSL_DIR}${SSL_FILENAME_KEY}" ]; then
 

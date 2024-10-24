@@ -1,6 +1,9 @@
 FROM ubuntu
+ 
 
-RUN apt-get update 
+RUN apt update
+
+RUN apt upgrade
 
 RUN apt install snapd
 
